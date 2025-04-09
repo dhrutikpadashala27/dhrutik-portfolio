@@ -158,11 +158,23 @@ for (let i = 0; i < navigationLinks.length; i++) {
   });
 }
 
+function validatePhoneNumber() {
+  const input = document.getElementById('number');
+  let value = input.value;
+
+  // Allow only digits and limit to 10 digits
+  value = value.replace(/\D/g, '').slice(0, 10);
+  
+  input.value = value;
+}
+
 function sendMail(event) {
   event.preventDefault(); // ⛔ Prevent the form from submitting normally
 
   const params = {
-    fullname: document.getElementById("name").value,
+    firstname: document.getElementById("firstname").value,
+    lastname: document.getElementById("lastname").value,
+    number: document.getElementById("number").value,
     email: document.getElementById("email").value,
     message: document.getElementById("message").value,
   };
